@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - production
+name: Build and release cicd test self-hosted environment
+
+jobs:
+  set-up:
+    name: Set up
+    runs-on: [self-hosted, macOS]
+    steps:
+      - uses: actions/checkout@v4.1.5
+      - name: Install flutter version
+        run: fvm install
+      - name: Use flutter version by fvm
+        run: fvm use
+  build-and-release-ios:
+    name: Build and release iOS
+    runs-on: [self-hosted, macOS]
+    needs: set-up
+    steps:
+      - run: fvm flutter clean
+      - run: fvm flutter pub get
+
+      - name: Pod install
+        run: pod install
+        working-directory: ios
+
+  
