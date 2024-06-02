@@ -26,4 +26,10 @@ jobs:
         run: pod install
         working-directory: ios
 
-  
+      - name: bundle install before run fastlane
+        run: bundle install --path vendor/bundle
+        working-directory: ios
+
+      - name: Testing fastlane
+        run: bundle exec fastlane tests
+        working-directory: ios
