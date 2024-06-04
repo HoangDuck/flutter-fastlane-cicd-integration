@@ -26,6 +26,12 @@ jobs:
         run: pod install
         working-directory: ios
 
+      - name: setup bundle
+        run: |
+          rbenv local 3.3.0
+          bundle -v
+        working-directory: ios
+
       - name: bundle install before run fastlane
         run: bundle install --path vendor/bundle
         working-directory: ios
