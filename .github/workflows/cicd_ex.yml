@@ -15,7 +15,6 @@ jobs:
       - name: Use flutter version by fvm
         run: |
           fvm use
-          y
   build-and-release-ios:
     name: Build and release iOS
     runs-on: [self-hosted, macOS]
