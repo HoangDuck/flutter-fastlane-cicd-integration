@@ -18,24 +18,25 @@ default_platform(:ios)
 platform :ios do
   desc "Release to Firebase Distribution"
   lane :release_to_firebase_distribution do
-    sync_code_signing(
-        team_id: "T349TQ3JZY", 
-        team_name: "Duc Hoang",
-        type: "adhoc",
-        app_identifier: "com.example.ciServerServiceEx",
-        readonly: true
-      )
+    # sync_code_signing(
+    #   team_id: "T349TQ3JZY", 
+    #   team_name: "Duc Hoang",
+    #   type: "development",
+    #   app_identifier: "com.example.ciServerServiceEx",
+    #   readonly: true
+    # )
     build_app(
       scheme: "Runner",
       archive_path: "./build/Runner.xcarchive",
-      export_method: "ad-hoc",
+      export_method: "development",
       configuration: "Debug",
+      silent: true,
       clean: true,
-        export_options: {
-          compileBitcode: false,
-          uploadBitcode: false
-        },
-        output_directory: "./build/Runner"
+      export_options: {
+        compileBitcode: false,
+        uploadBitcode: false
+      },
+      output_directory: "./build/Runner"
     )
 
     firebase_app_distribution(
