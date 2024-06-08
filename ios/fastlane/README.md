@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Automation of tests app
 
+### ios release_to_firebase_distribution
+
+```sh
+[bundle exec] fastlane ios release_to_firebase_distribution
+```
+
+Release to Firebase Distribution
+
 ### ios send_discord
 
 ```sh

@@ -34,5 +34,5 @@ jobs:
         working-directory: ios
 
       - name: Testing fastlane
-        run: bundle exec fastlane tests
+        run: bundle exec fastlane release_to_firebase_distribution
         working-directory: ios
