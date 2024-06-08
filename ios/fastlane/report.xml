@@ -5,12 +5,27 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.00025">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000543">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: discord_notifier" time="0.484719">
+      <testcase classname="fastlane.lanes" name="1: build_app" time="162.575203">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: firebase_app_distribution" time="37.797863">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: Switch to ios send_discord lane" time="0.000168">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: discord_notifier" time="1.659893">
         
       </testcase>
     

@@ -6,6 +6,8 @@ target 'Runner' do
   use_frameworks!
 
   # Pods for Runner
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
 
   target 'RunnerTests' do
     inherit! :search_paths

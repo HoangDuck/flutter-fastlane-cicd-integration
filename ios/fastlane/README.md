@@ -15,21 +15,21 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios tests
+### ios release_to_firebase_distribution
 
 ```sh
-[bundle exec] fastlane ios tests
+[bundle exec] fastlane ios release_to_firebase_distribution
 ```
 
-Automation of tests app
+Release to Firebase Distribution
 
-### ios custom_lane
+### ios send_discord
 
 ```sh
-[bundle exec] fastlane ios custom_lane
+[bundle exec] fastlane ios send_discord
 ```
 
-Description of what the lane does
+Notification discord for distribute app
 
 ----
 
