@@ -19,12 +19,20 @@ platform :ios do
 
   desc "Automation of tests app"
   lane :tests do
-    # run_tests(scheme: "MyAppTests")
+    send_discord(environment: "firebase", flavor: "dev")
+  end
+
+  desc "Notification discord for distribute app"
+  lane :send_discord do |options|
+    destination=options[:environment]=="appstore" ? "TestFlight" : "Firebase Distribution"
+    env = options[:environment]
+    flavor = options[:flavor]
+
     discord_notifier(
-    webhook_url:"https://discord.com/api/webhooks/1246649780340391966/G-3F9LvurenNIBqYoaz_Fn-6SFEyCLpAXppsgQ3niw8-vlSY2rOQYyNF8lu6NmYZdqc1",
-    title: "App testing",
-    description: "Fastlane is testing your app",
-  )
+      webhook_url:"https://discord.com/api/webhooks/1246649780340391966/G-3F9LvurenNIBqYoaz_Fn-6SFEyCLpAXppsgQ3niw8-vlSY2rOQYyNF8lu6NmYZdqc1",
+      title: "App's distributing to `#{destination}`",
+      description: "Release app iOS done via `#{destination}`! \nFlavor: `#{flavor}`\nEnvironment: `#{env}`\nRelease note: Testing",
+    )
   end
 
 

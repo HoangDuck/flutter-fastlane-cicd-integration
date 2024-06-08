@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Automation of tests app
 
+### ios send_discord
+
+```sh
+[bundle exec] fastlane ios send_discord
+```
+
+Notification discord for distribute app
+
 ### ios custom_lane
 
 ```sh

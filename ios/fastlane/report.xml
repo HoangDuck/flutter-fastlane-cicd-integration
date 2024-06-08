@@ -5,12 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.00025">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000539">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: discord_notifier" time="0.484719">
+      <testcase classname="fastlane.lanes" name="1: Switch to ios send_discord lane" time="8.7e-05">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: discord_notifier" time="0.440726">
         
       </testcase>
     
