@@ -29,7 +29,7 @@ jobs:
 
       - name: bundle install before run fastlane
         run: |
-          bundle config set path 'vender/bundle
+          bundle config set path 'vender/bundle'
           bundle install
         working-directory: ios
 
