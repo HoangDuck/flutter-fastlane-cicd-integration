@@ -16,6 +16,7 @@
 default_platform(:ios)
 
 platform :ios do
+
   desc "Automation of tests app"
   lane :tests do
     # run_tests(scheme: "MyAppTests")
@@ -25,6 +26,7 @@ platform :ios do
     description: "Fastlane is testing your app",
   )
   end
+
 
   desc "Description of what the lane does"
   lane :custom_lane do
