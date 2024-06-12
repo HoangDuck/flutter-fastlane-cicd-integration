@@ -33,8 +33,6 @@ platform :ios do
       scheme: "Runner",
       archive_path: "./build/Runner.xcarchive",
       export_method: "development",
-      configuration: "Debug",
-      silent: true,
       clean: true,
       export_options: {
         compileBitcode: false,
