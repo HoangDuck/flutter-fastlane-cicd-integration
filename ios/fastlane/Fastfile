@@ -26,7 +26,7 @@ platform :ios do
     #   readonly: true
     # )
     increment_version_number(
-      version_number: "2.1.2" # Set a specific version number
+      version_number: "2.1.3" # Set a specific version number
     )
 
     build_app(
