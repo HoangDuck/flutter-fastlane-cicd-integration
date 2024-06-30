@@ -24,7 +24,8 @@ platform :android do
       groups: "test_1",
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       release_notes: "Test releases",
-      apk_path: "../build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk"
+      apk_path: "../build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk",
+      debug: true
     )
     send_discord(environment: "firebase", flavor: "dev")
   end
