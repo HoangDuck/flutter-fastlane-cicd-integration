@@ -13,54 +13,32 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:ios)
+default_platform(:android)
 
-platform :ios do
+platform :android do
+
   desc "Release to Firebase Distribution"
   lane :release_to_firebase_distribution do
-    # sync_code_signing(
-    #   team_id: "T349TQ3JZY", 
-    #   team_name: "hoanghuuduc22@gmail.com",
-    #   type: "development",
-    #   app_identifier: "com.example.ciServerServiceEx",
-    # )
-
-    increment_version_number(
-      version_number: "2.1.4" # Set a specific version number
-    )
-
-    build_app(
-      scheme: "Runner",
-      archive_path: "./build/Runner.xcarchive",
-      export_method: "development",
-      clean: true,
-      export_options: {
-        compileBitcode: false,
-        uploadBitcode: false
-      },
-      output_directory: "./build/Runner"
-    )
-
     firebase_app_distribution(
-      app: "1:474571213215:ios:448812941de4a2771115aa",
+      app: "1:474571213215:android:b095729cceb0c1261115aa",
       groups: "test_1",
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       release_notes: "Test releases",
-      ipa_path: "./build/Runner/Runner.ipa"
+      apk_path: "../build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk"
     )
     send_discord(environment: "firebase", flavor: "dev")
   end
 
   desc "Notification discord for distribute app"
   lane :send_discord do |options|
-    destination=options[:environment]=="appstore" ? "TestFlight" : "Firebase Distribution"
+    destination=options[:environment]=="appstore" ? "Google Play" : "Firebase Distribution"
     env = options[:environment]
     flavor = options[:flavor]
 
     discord_notifier(
       webhook_url:"https://discord.com/api/webhooks/1246649780340391966/G-3F9LvurenNIBqYoaz_Fn-6SFEyCLpAXppsgQ3niw8-vlSY2rOQYyNF8lu6NmYZdqc1",
       title: "App's distributing to `#{destination}`",
-      description: "Release app iOS done via `#{destination}`! \nFlavor: `#{flavor}`\nEnvironment: `#{env}`\nRelease note: Testing",
+      description: "Release app Android done via `#{destination}`! \nFlavor: `#{flavor}`\nEnvironment: `#{env}`\nRelease note: Testing",
     )
   end
 end

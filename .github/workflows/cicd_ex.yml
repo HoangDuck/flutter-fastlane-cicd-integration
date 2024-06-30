@@ -38,3 +38,26 @@ jobs:
         env:
           FIREBASE_CLI_TOKEN: secrets.FIREBASE_CLI_TOKEN
         working-directory: ios
+
+  build-and-release-android:
+    name: Build and release iOS
+    runs-on: [self-hosted, macOS]
+    needs: set-up
+    steps:
+      - run: fvm flutter clean
+      - run: fvm flutter pub get
+
+      - name: build apk
+        run: fvm flutter build apk --split-per-abi
+
+      - name: bundle install before run fastlane
+        run: |
+          bundle config set path 'vender/bundle'
+          bundle install
+        working-directory: android
+
+      - name: Distribute app to Firebase
+        run: bundle exec fastlane release_to_firebase_distribution
+        env:
+          FIREBASE_CLI_TOKEN: secrets.FIREBASE_CLI_TOKEN
+        working-directory: android
