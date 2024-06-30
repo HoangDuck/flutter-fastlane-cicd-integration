@@ -40,7 +40,7 @@ jobs:
         working-directory: ios
 
   build-and-release-android:
-    name: Build and release iOS
+    name: Build and release Android
     runs-on: [self-hosted, macOS]
     needs: set-up
     steps:
