@@ -20,7 +20,8 @@ jobs:
     runs-on: [self-hosted, macOS]
     needs: set-up
     steps:
-      - run: |
+      - name: Run automation test
+        run: |
           fvm flutter clean
           fvm flutter pub get
           fvm flutter test
