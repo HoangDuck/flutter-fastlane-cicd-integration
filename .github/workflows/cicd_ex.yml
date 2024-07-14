@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - production
+    tags:
+      - v1.*
 name: Build and release cicd test self-hosted environment
 
 jobs:
