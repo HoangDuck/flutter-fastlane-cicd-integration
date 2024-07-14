@@ -15,6 +15,7 @@ jobs:
       - name: Use flutter version by fvm
         run: |
           fvm use
+
   automation-test:
     name: Automation test
     runs-on: [self-hosted, macOS]
@@ -25,10 +26,11 @@ jobs:
           fvm flutter clean
           fvm flutter pub get
           fvm flutter test
+
   build-and-release-ios:
     name: Build and release iOS
     runs-on: [self-hosted, macOS]
-    needs: set-up
+    needs: automation-test
     steps:
       - run: fvm flutter clean
       - run: fvm flutter pub get
@@ -52,7 +54,7 @@ jobs:
   build-and-release-android:
     name: Build and release Android
     runs-on: [self-hosted, macOS]
-    needs: set-up
+    needs: automation-test
     steps:
       - run: fvm flutter clean
       - run: fvm flutter pub get
