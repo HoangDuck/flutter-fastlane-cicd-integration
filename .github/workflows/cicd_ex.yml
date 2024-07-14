@@ -8,6 +8,8 @@ jobs:
   generate-release-notes:
     name: Generate release notes
     runs-on: [self-hosted, macOS]
+    permissions:
+      contents: write
     steps:
       - name: Generate release notes
         run: release_notes ${{github.ref_name}} ${{ secrets.GITHUB_TOKEN }}
