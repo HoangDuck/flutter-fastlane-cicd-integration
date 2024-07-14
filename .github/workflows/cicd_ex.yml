@@ -10,16 +10,7 @@ jobs:
     runs-on: [self-hosted, macOS]
     steps:
       - name: Generate release notes
-        run: |
-          curl --location 'https://api.github.com/repos/HoangDuck/ci_server_service_ex/releases' \
-          --header 'Accept: application/vnd.github+json' \
-          --header 'Authorization: Bearer ${{secrets.RELEASE_TOKEN}}' \
-          --header 'X-GitHub-Api-Version: 2022-11-28' \
-          --header 'Content-Type: application/json' \
-          --data '{
-              "tag_name": "${{ github.ref_name }}",
-              "generate_release_notes": true
-          }'
+        run: release_notes ${{github.ref_name}} ${{secrets.RELEASE_TOKEN}}
   set-up:
     name: Set up
     runs-on: [self-hosted, macOS]
