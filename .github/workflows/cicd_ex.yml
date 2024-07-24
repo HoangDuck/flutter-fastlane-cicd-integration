@@ -16,6 +16,12 @@ jobs:
         run: |
           fvm use
 
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
+
   automation-test:
     name: Automation test
     runs-on: [self-hosted, macOS]
