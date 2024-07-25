@@ -16,6 +16,11 @@ jobs:
         run: |
           fvm use
 
+  prod-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production asdasserver on branch $GITHUB_REF"
+
   automation-test:
     name: Automation test
     runs-on: [self-hosted, macOS]
