@@ -1,0 +1,11 @@
+on:
+  push:
+    branches:
+      - master
+name: Build and test custom action
+jobs:
+  run-action:
+    name: Run custom action
+    runs-on: [self-hosted, macOS]
+    steps:
+      - uses: HoangDuck/Generate-Release-Notes@v1.1
