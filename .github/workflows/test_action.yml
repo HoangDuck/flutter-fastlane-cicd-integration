@@ -1,0 +1,18 @@
+on:
+  push:
+    tags:
+      - test_v1.*
+name: Build and test custom action
+jobs:
+  run-action:
+    name: Run custom action
+    runs-on: [self-hosted, macOS]
+    permissions:
+      contents: write
+    steps:
+      - uses: HoangDuck/Generate-Release-Notes@v1.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{github.ref_name}}
+          owner: ${{github.repository_owner}}
+          repo: "ci_server_service_ex"
